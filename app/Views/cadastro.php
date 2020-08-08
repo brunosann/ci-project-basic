@@ -9,31 +9,45 @@
 </head>
 
 <body class="bg-secondary">
-
   <div class="d-flex vh-100 justify-content-center align-items-center">
     <div class="form p-4 bg-light rounded w-25">
       <?= helper('form') ?>
-      <?= form_open() ?>
+      <?= form_open(site_url('/cadastro/submit')) ?>
       <p class="display-4 text-center">Cadastro</p>
       <div class="form-group">
         <label for="nome">Nome:</label>
-        <input class="form-control" type="text" name="nome" id="nome">
+        <input required class="form-control" type="text" value="<?= old('nome') ?>" name="nome" id="nome">
+        <?php if (isset($erro)) : ?>
+          <span class="small text-muted"><?= isset($erro->getErrors()['nome']) ? $erro->getErrors()['nome'] : '' ?></span>
+        <?php endif ?>
       </div>
       <div class="form-group">
         <label for="sobrenome">Sobrenome:</label>
-        <input class="form-control" type="text" name="sobrenome" id="sobrenome">
+        <input required class="form-control" type="text" value="<?= old('sobrenome') ?>" name="sobrenome" id="sobrenome">
+        <?php if (isset($erro)) : ?>
+          <span class="small text-muted"><?= isset($erro->getErrors()['sobrenome']) ? $erro->getErrors()['sobrenome'] : '' ?></span>
+        <?php endif ?>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
-        <input class="form-control" type="email" name="email" id="email">
+        <input required class="form-control" type="email" value="<?= old('email') ?>" name="email" id="email">
+        <?php if (isset($erro)) : ?>
+          <span class="small text-muted"><?= isset($erro->getErrors()['email']) ? $erro->getErrors()['email'] : '' ?></span>
+        <?php endif ?>
       </div>
       <div class="form-group">
         <label for="senha">Senha:</label>
-        <input class="form-control" type="password" name="senha" id="senha">
+        <input required class="form-control" type="password" name="senha" id="senha">
+        <?php if (isset($erro)) : ?>
+          <span class="small text-muted"><?= isset($erro->getErrors()['senha']) ? $erro->getErrors()['senha'] : '' ?></span>
+        <?php endif ?>
       </div>
       <div class="form-group">
         <label for="re-senha">Repita a senha:</label>
-        <input class="form-control" type="password" name="re-senha" id="re-senha">
+        <input required class="form-control" type="password" name="re-senha" id="re-senha">
+        <?php if (isset($erro)) : ?>
+          <span class="small text-muted"><?= isset($erro->getErrors()['re-senha']) ? $erro->getErrors()['re-senha'] : '' ?></span>
+        <?php endif ?>
       </div>
       <div class="form-group text-center">
         <button class="btn btn-primary btn-lg" type="submit">Cadastrar</button>
