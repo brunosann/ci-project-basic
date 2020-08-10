@@ -27,16 +27,17 @@
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">Criar nova Postagem</button>
   </div>
 
-  <article class="row bg-gray shadow-sm my-4 p-3 rounded">
-    <div class="user-img">
-    </div>
-    <div class="user-info mx-3">
-      <h6 class="lead">Nome</h6>
-      <small class="lead small text-muted">data</small>
-    </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nihil veniam excepturi vero ratione blanditiis in minus, velit perspiciatis nam eius expedita adipisci necessitatibus nemo mollitia ipsam illum officia, exercitationem minima ut commodi! Hic quos asperiores nesciunt libero iste voluptate ipsa molestias odio earum esse veniam velit dolorum error, aperiam voluptas ratione dicta autem id natus! Aspernatur, accusantium quia.
-    </p>
-  </article>
+  <?php foreach ($posts as $post) : ?>
+    <article class="row bg-gray shadow-sm my-4 p-3 rounded">
+      <div class="user-img">
+      </div>
+      <div class="user-info mx-3">
+        <h6 class="lead"><?= ucfirst($post->usuario) ?></h6>
+        <small class="lead small text-muted"><?= date('d/m/y', strtotime($post->date_created)) ?></small>
+      </div>
+      <p><?= $post->post ?></p>
+    </article>
+  <?php endforeach ?>
 </div>
 
 <script src="<?= site_url('assets/js/jquery-3.5.1.slim.min.js') ?>"></script>
