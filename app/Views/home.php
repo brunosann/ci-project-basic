@@ -18,9 +18,7 @@
         </a>
         <div class="user d-flex align-items-center">
           <a class="h5 mx-4 text-decoration-none text-white" href="<?= site_url('/edit') ?>"><?= ucfirst(session()->get('usuario')) ?></a>
-          <div class="user-img">
-
-          </div>
+          <img style="width: 50px; height: 50px" class="img-fluid rounded-circle" src="<?= site_url('/uploads/' . $img) ?>" alt="">
         </div>
       </nav>
     </div>

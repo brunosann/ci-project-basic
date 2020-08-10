@@ -9,29 +9,36 @@
   </div>
   <div class="row ">
     <?= helper('form') ?>
-    <?= form_open('') ?>
-    <div class="form-row my-3">
-      <div class="col">
-        <label for="nome">Nome:</label>
-        <input class="form-control" type="text" name="nome" id="nome">
+    <div class="col-sm">
+      <?= form_open('') ?>
+      <div class="form-row my-3">
+        <div class="col">
+          <label for="nome">Nome:</label>
+          <input class="form-control" type="text" name="nome" id="nome" value="<?= session()->get('usuario') ?>">
+        </div>
+        <div class="col">
+          <label for="sobrenome">Sobrenome:</label>
+          <input class="form-control" type="text" name="sobrenome" id="sobrenome" value="<?= session()->get('sobrenome') ?>">
+        </div>
       </div>
-      <div class="col">
-        <label for="sobrenome">Sobrenome:</label>
-        <input class="form-control" type="text" name="sobrenome" id="sobrenome">
+      <div class="form-row my-3">
+        <div class="col">
+          <label for="senha">Nova senha:</label>
+          <input class="form-control" type="password" name="senha" id="senha">
+        </div>
       </div>
+      <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+      <?= form_close() ?>
     </div>
-    <div class="form-row my-3">
-      <div class="col">
-        <label for="senha">Nova senha:</label>
-        <input class="form-control" type="password" name="senha" id="senha">
+    <div class="col-sm mt-4 mt-sm-0">
+      <?= form_open_multipart(site_url('/edit/img')) ?>
+      <div class="form-group">
+        <label for="img">Adicione ou altere sua foto</label>
+        <input required type="file" name="img" class="form-control-file" id="img">
       </div>
-      <div class="col">
-        <label for="re-senha">Repita nova senha:</label>
-        <input class="form-control" type="password" name="re-senha" id="re-senha">
-      </div>
+      <button class="btn btn-primary" type="submit">Adicionar Foto</button>
+      <?= form_close() ?>
     </div>
-    <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
-    <?= form_close() ?>
   </div>
 
   <div class="row my-3">

@@ -29,8 +29,7 @@
 
   <?php foreach ($posts as $post) : ?>
     <article class="row bg-gray shadow-sm my-4 p-3 rounded">
-      <div class="user-img">
-      </div>
+      <img style="width: 50px; height: 50px" class="img-fluid rounded-circle" src="<?= site_url('/uploads/' . $img) ?>" alt="">
       <div class="user-info mx-3">
         <h6 class="lead"><?= ucfirst($post->usuario) ?></h6>
         <small class="lead small text-muted"><?= date('d/m/y', strtotime($post->date_created)) ?></small>
