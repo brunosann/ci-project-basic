@@ -13,9 +13,11 @@
   <header class="bg-dark">
     <div class="container">
       <nav class=" row justify-content-between  text-white py-2">
-        <h1>PublicDev</h1>
+        <a class="text-decoration-none text-white" href="<?= site_url('/') ?>">
+          <h1>PublicDev</h1>
+        </a>
         <div class="user d-flex align-items-center">
-          <h6 class="mx-4"><?= ucfirst(session()->get('usuario')) ?></h6>
+          <a class="h5 mx-4 text-decoration-none text-white" href="<?= site_url('/edit') ?>"><?= ucfirst(session()->get('usuario')) ?></a>
           <div class="user-img">
 
           </div>
