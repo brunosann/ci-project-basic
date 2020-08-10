@@ -15,7 +15,7 @@
       <nav class=" row justify-content-between  text-white py-2">
         <h1>PublicDev</h1>
         <div class="user d-flex align-items-center">
-          <h6 class="mx-4">Nome</h6>
+          <h6 class="mx-4"><?= ucfirst(session()->get('usuario')) ?></h6>
           <div class="user-img">
 
           </div>

@@ -13,7 +13,7 @@
   <div class="d-flex vh-100 justify-content-center align-items-center">
     <div class="form p-4 bg-light rounded w-25">
       <?= helper('form') ?>
-      <?= form_open() ?>
+      <?= form_open(site_url('/login/submit')) ?>
       <p class="display-4 text-center">Login</p>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -23,6 +23,10 @@
         <label for="senha">Senha:</label>
         <input class="form-control" type="password" name="senha" id="senha">
       </div>
+
+      <?php if (isset($erro)) : ?>
+        <p class="small text-center text-danger"><?= $erro ?></p>
+      <?php endif ?>
       <div class="form-group text-center">
         <button class="btn btn-primary btn-lg" type="submit">Entrar</button>
       </div>
