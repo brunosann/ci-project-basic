@@ -36,6 +36,7 @@ $routes->get('/login', 'Login::index');
 $routes->post('/login/submit', 'Login::submit');
 $routes->get('/cadastro', 'Cadastro::index');
 $routes->post('/cadastro/submit', 'Cadastro::submit');
+$routes->post('/post/add', 'Post::add');
 
 /**
  * --------------------------------------------------------------------

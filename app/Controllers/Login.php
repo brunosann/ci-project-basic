@@ -32,6 +32,7 @@ class Login extends BaseController
     if (!$verif) return view('login', ['erro' => 'Usuario não autorizado']);
 
     session()->set([
+      'id' => $user->id_user,
       'usuario' => $user->nome,
       'sobrenome' => $user->sobrenome,
       'email' => $user->email
