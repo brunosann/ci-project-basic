@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
-  <title>PublicDev - Login</title>
+  <title>PublicDev - Cadastro</title>
 </head>
 
 <body class="bg-secondary">
@@ -40,13 +40,6 @@
         <input required class="form-control" type="password" name="senha" id="senha">
         <?php if (isset($erro)) : ?>
           <span class="small text-muted"><?= isset($erro->getErrors()['senha']) ? $erro->getErrors()['senha'] : '' ?></span>
-        <?php endif ?>
-      </div>
-      <div class="form-group">
-        <label for="re-senha">Repita a senha:</label>
-        <input required class="form-control" type="password" name="re-senha" id="re-senha">
-        <?php if (isset($erro)) : ?>
-          <span class="small text-muted"><?= isset($erro->getErrors()['re-senha']) ? $erro->getErrors()['re-senha'] : '' ?></span>
         <?php endif ?>
       </div>
       <div class="form-group text-center">

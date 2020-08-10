@@ -9,5 +9,5 @@ class Usuario extends Model
   protected $table = 'usuarios';
   protected $primaryKey = 'id_user';
   protected $returnType = 'object';
-  protected $AllowedFields = ['nome', 'sobrenome', 'email', 'senha', 'img', 'data_created'];
+  protected $allowedFields = ['nome', 'sobrenome', 'email', 'senha', 'img', 'date_created'];
 }

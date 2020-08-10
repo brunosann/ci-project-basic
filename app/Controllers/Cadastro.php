@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Usuario;
+
 class Cadastro extends BaseController
 {
   public function index()
@@ -22,7 +24,6 @@ class Cadastro extends BaseController
         'sobrenome' => 'required|alpha',
         'email' => 'required|valid_email',
         'senha' => 'required|min_length[8]',
-        're-senha' => 'required|min_length[8]',
       ],
       [
         'nome' => [
@@ -41,16 +42,28 @@ class Cadastro extends BaseController
           'required' => 'Preencha o campo SENHA',
           'min_length' => 'No minimo 8 caracteres'
         ],
-        're-senha' => [
-          'required' => 'Preencha o campo SENHA',
-          'min_length' => 'No minimo 8 caracteres'
-        ]
       ]
     );
 
     if (!$validation) {
       return redirect()->back()->withInput()->with('erro', $this->validator);
     }
-    echo 'Passou';
+
+    $usuarios = new Usuario();
+
+    $senha = $this->request->getPost('senha');
+    $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
+
+    $data = [
+      'nome' => $this->request->getPost('nome'),
+      'sobrenome' => $this->request->getPost('sobrenome'),
+      'email' => $this->request->getPost('email'),
+      'senha' => $senhaHash,
+      'date_created' => date('Y/m/d H:i:s'),
+    ];
+
+    $usuarios->insert($data);
+
+    return redirect()->route('/');
   }
 }
