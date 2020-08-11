@@ -48,17 +48,14 @@
     <h4>Suas Postagens</h4>
   </div>
 
-  <div class="row bg-light my-3 p-2">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perspiciatis error dolores! Sequi nobis non, nisi aut quo soluta exercitationem iste rem perspiciatis corrupti incidunt atque animi numquam eum eaque similique quis perferendis necessitatibus ipsam, ullam fugit nesciunt? Iure obcaecati nesciunt corrupti voluptate quae beatae architecto nulla veniam ea illo!</p>
-    <button class="btn btn-secondary btn-sm mr-2">Editar</button>
-    <button class="btn btn-secondary btn-sm">Deletar</button>
-  </div>
-  <div class="row bg-light my-3 p-2">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perspiciatis error dolores! Sequi nobis non, nisi aut quo soluta exercitationem iste rem perspiciatis corrupti incidunt atque animi numquam eum eaque similique quis perferendis necessitatibus ipsam, ullam fugit nesciunt? Iure obcaecati nesciunt corrupti voluptate quae beatae architecto nulla veniam ea illo!</p>
-    <button class="btn btn-secondary btn-sm mr-2">Editar</button>
-    <button class="btn btn-secondary btn-sm">Deletar</button>
-  </div>
-
+  <?php foreach ($posts as $post) : ?>
+    <div class="row bg-light my-3 p-2">
+      <p><?= $post->post ?></p>
+      <div class="w-100"></div>
+      <button class="btn btn-secondary btn-sm mr-2">Editar</button>
+      <a href="<?= site_url('/edit/delete/' . $post->id_post) ?>" class="btn btn-secondary btn-sm">Deletar</a>
+    </div>
+  <?php endforeach ?>
 </div>
 
 <?= $this->endSection(); ?>
