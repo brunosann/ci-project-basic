@@ -34,8 +34,7 @@ class Login extends BaseController
     session()->set([
       'id' => $user->id_user,
       'usuario' => $user->nome,
-      'sobrenome' => $user->sobrenome,
-      'email' => $user->email
+      'sobrenome' => $user->sobrenome
     ]);
 
     return redirect()->route('/');

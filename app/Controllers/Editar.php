@@ -8,6 +8,11 @@ class Editar extends BaseController
 {
   public function index()
   {
+    $data = [];
+    if (session()->has('erro')) {
+      $data['erro'] = session('erro');
+    }
+
     helper('img');
     $data['img'] = getImg();
     return view('templates/editar', $data);

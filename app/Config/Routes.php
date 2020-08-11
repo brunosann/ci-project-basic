@@ -39,6 +39,7 @@ $routes->post('/cadastro/submit', 'Cadastro::submit');
 $routes->post('/post/add', 'Post::add');
 $routes->get('/edit', 'Editar::index');
 $routes->post('/edit/img', 'Editar::image');
+$routes->post('/edit/update', 'UserUpdate::update');
 
 /**
  * --------------------------------------------------------------------

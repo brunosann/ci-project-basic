@@ -7,10 +7,13 @@
     <div class="w-100"></div>
     <p>Para alterar suas informações basta alteralas e salvar</p>
   </div>
+  <?php if (isset($erro)) : ?>
+    <span class="text-danger small">Preencha o formulario corretamente!</span>
+  <?php endif ?>
   <div class="row ">
     <?= helper('form') ?>
     <div class="col-sm">
-      <?= form_open('') ?>
+      <?= form_open(site_url('/edit/update')) ?>
       <div class="form-row my-3">
         <div class="col">
           <label for="nome">Nome:</label>
