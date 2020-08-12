@@ -9,6 +9,7 @@ class Editar extends BaseController
 {
   public function index()
   {
+    if (!session()->get('id')) return redirect()->to(site_url('/login'));
     $data = [];
     if (session()->has('erro')) {
       $data['erro'] = session('erro');
