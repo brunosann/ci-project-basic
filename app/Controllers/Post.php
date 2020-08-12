@@ -14,7 +14,7 @@ class Post extends BaseController
 
     if (!$validation) return redirect()->to(site_url('/'));
 
-    if (session()->get('usuario') && session()->get('email')) {
+    if (session()->get('usuario') && session()->get('id')) {
       $post = $this->request->getPost('post');
       $usuario = session()->get('usuario');
       $id = session()->get('id');

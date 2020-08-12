@@ -15,7 +15,7 @@ class Home extends BaseController
 		$data['posts'] = $posts->findAll();
 		$data['img'] = getImg();
 
-		if (session()->get('usuario') && session()->get('email')) return view('templates/conteudo', $data);
+		if (session()->get('usuario') && session()->get('id')) return view('templates/conteudo', $data);
 		return redirect()->to(site_url('login'));
 	}
 

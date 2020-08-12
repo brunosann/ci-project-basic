@@ -42,6 +42,22 @@ class Editar extends BaseController
     return redirect()->to(site_url('/edit'));
   }
 
+  public function edit()
+  {
+    $validation = $this->validate([
+      'post' => 'required'
+    ]);
+
+    if (!$validation) return redirect()->to(site_url('/edit'));
+
+    $post = $this->request->getPost('post');
+    $id = $this->request->getPost('post-id');
+
+    $posts = new Post();
+    $posts->update($id, ['post' => $post]);
+    return redirect()->to(site_url('/edit'));
+  }
+
   public function delete($id)
   {
     $posts = new Post();

@@ -41,6 +41,7 @@ $routes->get('/edit', 'Editar::index');
 $routes->post('/edit/img', 'Editar::image');
 $routes->post('/edit/update', 'UserUpdate::update');
 $routes->get('/edit/delete/(:num)', 'Editar::delete/$1');
+$routes->post('/edit/post/update', 'Editar::edit');
 
 /**
  * --------------------------------------------------------------------
